@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+<rect width="900" height="500" fill="white"/>
+<text x="450" y="38" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">Kernighan–Lin vs Spectral: Real Networks</text>
+<line x1="90" y1="420" x2="850" y2="420" stroke="#333"/><line x1="90" y1="70" x2="90" y2="420" stroke="#333"/>
+<rect x="150" y="201" width="90" height="219" fill="#5B8FF9"/><rect x="245" y="219" width="90" height="201" fill="#61DDAA"/>
+<rect x="385" y="84" width="90" height="336" fill="#5B8FF9"/><rect x="480" y="123" width="90" height="297" fill="#61DDAA"/>
+<rect x="620" y="406" width="90" height="14" fill="#5B8FF9"/><rect x="715" y="406" width="90" height="14" fill="#61DDAA"/>
+<text x="242" y="450" text-anchor="middle" font-family="Arial" font-size="15">Karate Club</text><text x="477" y="450" text-anchor="middle" font-family="Arial" font-size="15">Les Misérables</text><text x="712" y="450" text-anchor="middle" font-family="Arial" font-size="15">Florentine</text>
+<text x="150" y="65" font-family="Arial" font-size="13">Cut size</text>
+<rect x="630" y="45" width="15" height="15" fill="#5B8FF9"/><text x="652" y="58" font-family="Arial" font-size="13">Spectral</text><rect x="730" y="45" width="15" height="15" fill="#61DDAA"/><text x="752" y="58" font-family="Arial" font-size="13">Kernighan–Lin</text>
+<text x="195" y="193" text-anchor="middle" font-family="Arial" font-size="13">25</text><text x="290" y="211" text-anchor="middle" font-family="Arial" font-size="13">23</text>
+<text x="430" y="76" text-anchor="middle" font-family="Arial" font-size="13">119</text><text x="525" y="115" text-anchor="middle" font-family="Arial" font-size="13">105</text>
+<text x="665" y="398" text-anchor="middle" font-family="Arial" font-size="13">5</text><text x="760" y="398" text-anchor="middle" font-family="Arial" font-size="13">5</text>
+</svg>
