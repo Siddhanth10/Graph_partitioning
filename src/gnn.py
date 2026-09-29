@@ -38,8 +38,10 @@ def normalized_adjacency(graph: nx.Graph) -> torch.Tensor:
     adjacency += np.eye(len(adjacency), dtype=np.float32)
     degree = adjacency.sum(axis=1)
     inv_sqrt = np.diag(1.0 / np.sqrt(np.maximum(degree, 1e-12)))
-    normalized = inv_sqrt @ adjacency @ inv_sqrt
-    return torch.tensor(normalized, dtype=torch.float32)
+    return torch.tensor(
+        inv_sqrt @ adjacency @ inv_sqrt,
+        dtype=torch.float32,
+    )
 
 
 def set_seed(seed: int = 42):
@@ -58,7 +60,11 @@ def train_gnn(
     set_seed(seed)
     input_dim = train_graphs[0]["features"].shape[1]
     model = GCNPartitioner(input_dim, hidden_dim)
-    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=1e-4)
+    optimizer = torch.optim.Adam(
+        model.parameters(),
+        lr=learning_rate,
+        weight_decay=1e-4,
+    )
     loss_fn = nn.CrossEntropyLoss()
 
     model.train()
@@ -80,11 +86,17 @@ def train_gnn(
 
 @torch.no_grad()
 def predict_gnn(model, graph_sample):
+    """Predict a balanced two-way partition using GCN scores."""
     model.eval()
     x = torch.tensor(graph_sample["features"], dtype=torch.float32)
     adjacency = normalized_adjacency(graph_sample["graph"])
     logits = model(x, adjacency)
-    predictions = torch.argmax(logits, dim=1).cpu().numpy()
+    scores = logits[:, 1].cpu().numpy()
+
+    # Enforce an approximately balanced split before local refinement.
+    order = np.argsort(scores)
+    predictions = np.zeros(len(order), dtype=np.int64)
+    predictions[order[len(order) // 2 :]] = 1
 
     return {
         node: int(label)
