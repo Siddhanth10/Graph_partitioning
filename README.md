@@ -84,7 +84,9 @@ Graph_partitioning/
 └── results/
     ├── EXPERIMENT_REPORT.md
     ├── experiment_results.json
-    └── baseline_comparison.json
+    ├── baseline_comparison.json
+    ├── synthetic_normalized_cut.svg
+    └── real_network_baselines.svg
 ```
 
 ## Installation
@@ -109,7 +111,7 @@ python -m src.cli --nodes 40 --probability 0.12
 
 ## Run the full experiment
 
-```python
+```bash
 python experiments/run_experiments.py
 ```
 
@@ -133,6 +135,8 @@ A reproducible experiment was run with **100 training graphs and 30 held-out tes
 
 The results show why graph partitioning should not optimize cut size alone: the Random Forest achieves a lower cut but produces substantially less-balanced partitions. The GCN provides a more balanced ML solution but is not yet better than the spectral baseline on this benchmark.
 
+![Synthetic normalized-cut comparison](results/synthetic_normalized_cut.svg)
+
 ### Classical baseline on real networks
 
 | Dataset | Algorithm | Cut size | Balance | Normalized cut |
@@ -143,6 +147,8 @@ The results show why graph partitioning should not optimize cut size alone: the 
 | Les Misérables | Kernighan–Lin | 105 | 0.987 | 0.265 |
 | Florentine Families | Spectral | 5 | 0.933 | 0.501 |
 | Florentine Families | Kernighan–Lin | 5 | 0.933 | 0.501 |
+
+![Real-network baseline comparison](results/real_network_baselines.svg)
 
 ### GNN hyperparameter sweep
 
