@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="460" viewBox="0 0 900 460">
+<rect width="900" height="460" fill="white"/>
+<text x="450" y="38" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">Synthetic Test: Mean Normalized Cut</text>
+<line x1="100" y1="390" x2="850" y2="390" stroke="#333"/>
+<line x1="100" y1="70" x2="100" y2="390" stroke="#333"/>
+<text x="48" y="395" font-family="Arial" font-size="14">0</text><text x="42" y="235" font-family="Arial" font-size="14">0.4</text><text x="42" y="75" font-family="Arial" font-size="14">0.8</text>
+<rect x="170" y="143" width="150" height="247" fill="#5B8FF9"/><rect x="375" y="106" width="150" height="284" fill="#61DDAA"/><rect x="580" y="139" width="150" height="251" fill="#65789B"/>
+<text x="245" y="420" text-anchor="middle" font-family="Arial" font-size="16">Spectral</text><text x="450" y="420" text-anchor="middle" font-family="Arial" font-size="16">Random Forest</text><text x="655" y="420" text-anchor="middle" font-family="Arial" font-size="16">GCN</text>
+<text x="245" y="135" text-anchor="middle" font-family="Arial" font-size="16">0.618</text><text x="450" y="98" text-anchor="middle" font-family="Arial" font-size="16">0.711</text><text x="655" y="131" text-anchor="middle" font-family="Arial" font-size="16">0.629</text>
+<text x="475" y="455" text-anchor="middle" font-family="Arial" font-size="13">Lower is better</text>
+</svg>
