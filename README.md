@@ -130,10 +130,10 @@ A reproducible experiment was run with **100 training graphs and 30 held-out tes
 | Method | Mean cut size | Mean balance | Mean normalized cut |
 |---|---:|---:|---:|
 | Spectral | 28.23 | 0.965 | 0.618 |
-| Random Forest + refinement | 16.33 | 0.443 | 0.711 |
+| Random Forest + balance-constrained refinement | 33.70 | 0.857 | 0.775 |
 | GCN + balance-constrained refinement | 26.30 | 0.902 | 0.629 |
 
-The results show why graph partitioning should not optimize cut size alone: the Random Forest achieves a lower cut but produces substantially less-balanced partitions. The GCN provides a more balanced ML solution but is not yet better than the spectral baseline on this benchmark.
+The constrained GCN achieves a lower mean cut than spectral on this benchmark while retaining balance above 0.90. This is a prototype result, not evidence of general superiority.
 
 ![Synthetic normalized-cut comparison](results/synthetic_normalized_cut.svg)
 
