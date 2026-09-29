@@ -1,0 +1,33 @@
+{
+  "synthetic": {
+    "train_graphs": 100,
+    "test_graphs": 30,
+    "spectral_mean": {
+      "cut_size": 28.233333333333334,
+      "balance": 0.965,
+      "normalized_cut": 0.6178874983423827
+    },
+    "random_forest_mean": {
+      "cut_size": 16.333333333333332,
+      "balance": 0.44333333333333336,
+      "normalized_cut": 0.7112520625696062,
+      "accuracy_vs_spectral_labels": 0.5058333333333334
+    },
+    "gnn_mean": {
+      "cut_size": 26.3,
+      "balance": 0.9016666666666666,
+      "normalized_cut": 0.62913193
+    }
+  },
+  "gnn_hyperparameters": [
+    {"hidden_dim": 16, "epochs": 20, "mean_normalized_cut": 0.5680298695486876},
+    {"hidden_dim": 32, "epochs": 20, "mean_normalized_cut": 0.6085200213038349},
+    {"hidden_dim": 32, "epochs": 40, "mean_normalized_cut": 0.6070561316100724},
+    {"hidden_dim": 64, "epochs": 40, "mean_normalized_cut": 0.5832974484804839}
+  ],
+  "real_world": [
+    {"dataset": "karate_club", "nodes": 34, "edges": 78, "cut_size": 22.0, "balance": 0.9411764705882353, "normalized_cut": 0.19090909090909092},
+    {"dataset": "les_miserables", "nodes": 77, "edges": 254, "cut_size": 52.0, "balance": 0.7532467532467533, "normalized_cut": 0.17681794055201697},
+    {"dataset": "florentine_families", "nodes": 15, "edges": 20, "cut_size": 4.0, "balance": 0.9333333333333333, "normalized_cut": 0.40404040404040403}
+  ]
+}
