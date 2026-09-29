@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: graph-partitioning-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn backend.app:app
+    healthCheckPath: /api/health
