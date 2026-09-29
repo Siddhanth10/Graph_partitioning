@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graph Partitioning | Network Optimizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="background-grid"></div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">GP</div>
+      <div><strong>Graph Partitioning</strong><span>Network Optimization Lab</span></div>
+    </div>
+    <div class="status-pill"><span id="statusDot"></span><span id="statusText">API not checked</span></div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">ML + Graph Algorithms</span>
+        <h1>Partition your network<br><span>in seconds.</span></h1>
+        <p>Enter your nodes and connections, choose a partitioning method, and get the two network partitions with cut size, balance, and normalized cut.</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-icon">⌁</div>
+        <div><b>Two-way partitioning</b><small>Minimize cross-partition communication</small></div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="panel input-panel">
+        <div class="panel-title">
+          <div><span class="step">01</span><h2>Build your graph</h2></div>
+          <button id="sampleBtn" class="ghost-btn">Load sample</button>
+        </div>
+
+        <label for="nodeCount">Number of nodes</label>
+        <div class="node-row">
+          <input id="nodeCount" type="number" min="2" max="500" value="10" />
+          <button id="randomBtn" class="secondary-btn">Random edges</button>
+        </div>
+
+        <label for="edges">Edges</label>
+        <textarea id="edges" spellcheck="false" placeholder="One edge per line&#10;0-1&#10;1-2&#10;2-3&#10;3-4&#10;0-4:2"></textarea>
+        <div class="hint">Format: source-target or source-target:weight. Nodes are numbered from 0.</div>
+
+        <label for="algorithm">Partitioning method</label>
+        <select id="algorithm">
+          <option value="spectral">Spectral — Fiedler vector</option>
+          <option value="kernighan-lin">Kernighan–Lin — classical refinement</option>
+          <option value="ml">ML — Random Forest + refinement</option>
+        </select>
+
+        <button id="partitionBtn" class="primary-btn">Partition Network <span>→</span></button>
+        <div id="errorBox" class="error-box hidden"></div>
+      </div>
+
+      <div class="panel result-panel">
+        <div class="panel-title">
+          <div><span class="step">02</span><h2>Partition result</h2></div>
+          <span id="algorithmBadge" class="method-badge">Waiting</span>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">◈</div>
+          <h3>Your result will appear here</h3>
+          <p>Submit a graph to see the partition, metrics, and cut edges.</p>
+        </div>
+
+        <div id="results" class="hidden">
+          <div class="metric-grid">
+            <div class="metric"><span>Cut size</span><strong id="cutSize">—</strong><small>cross-partition weight</small></div>
+            <div class="metric"><span>Balance</span><strong id="balance">—</strong><small>1.00 = perfectly balanced</small></div>
+            <div class="metric"><span>Normalized cut</span><strong id="normalizedCut">—</strong><small>lower is generally better</small></div>
+            <div class="metric"><span>Edges</span><strong id="edgeCount">—</strong><small>input network</small></div>
+          </div>
+
+          <div class="partitions">
+            <div class="partition-card p0">
+              <div><span class="partition-dot"></span><b>Partition A</b><small id="sizeA"></small></div>
+              <div id="partitionA" class="node-list"></div>
+            </div>
+            <div class="partition-card p1">
+              <div><span class="partition-dot"></span><b>Partition B</b><small id="sizeB"></small></div>
+              <div id="partitionB" class="node-list"></div>
+            </div>
+          </div>
+
+          <div class="graph-wrap">
+            <div class="graph-header"><b>Network map</b><span><i class="legend-a"></i>A <i class="legend-b"></i>B <i class="legend-cut"></i>cut edge</span></div>
+            <svg id="graphSvg" viewBox="0 0 700 390" role="img" aria-label="Partitioned graph visualization"></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-grid">
+      <div class="info-card"><span>01</span><h3>Input</h3><p>Define a custom network with up to 500 nodes and weighted or unweighted edges.</p></div>
+      <div class="info-card"><span>02</span><h3>Optimize</h3><p>The backend runs the selected graph partitioning algorithm on your network.</p></div>
+      <div class="info-card"><span>03</span><h3>Evaluate</h3><p>Compare cut size, partition balance, and normalized cut for the generated result.</p></div>
+    </section>
+
+    <footer>Graph Partitioning for Network Optimization · Project prototype</footer>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
