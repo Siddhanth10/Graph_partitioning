@@ -1,0 +1,8 @@
+[
+  {"dataset":"karate_club","nodes":34,"edges":78,"algorithm":"Spectral","cut_size":25.0,"balance":1.0,"normalized_cut":0.21659634317862164,"runtime_seconds":0.0009424320000022135},
+  {"dataset":"karate_club","nodes":34,"edges":78,"algorithm":"Kernighan-Lin","cut_size":23.0,"balance":1.0,"normalized_cut":0.19937332307634575,"runtime_seconds":0.0005558189999987917},
+  {"dataset":"les_miserables","nodes":77,"edges":254,"algorithm":"Spectral","cut_size":119.0,"balance":0.987012987012987,"normalized_cut":0.3181864870196674,"runtime_seconds":0.001277737000009438},
+  {"dataset":"les_miserables","nodes":77,"edges":254,"algorithm":"Kernighan-Lin","cut_size":105.0,"balance":0.987012987012987,"normalized_cut":0.26460107776536557,"runtime_seconds":0.0009426020000091739},
+  {"dataset":"florentine_families","nodes":15,"edges":20,"algorithm":"Spectral","cut_size":5.0,"balance":0.9333333333333333,"normalized_cut":0.5012531328320802,"runtime_seconds":0.00018987600000741622},
+  {"dataset":"florentine_families","nodes":15,"edges":20,"algorithm":"Kernighan-Lin","cut_size":5.0,"balance":0.9333333333333333,"normalized_cut":0.5012531328320802,"runtime_seconds":0.00011723700001198267}
+]
