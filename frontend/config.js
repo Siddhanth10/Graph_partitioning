@@ -1,3 +1,2 @@
-// Set this to your deployed backend URL before deploying the frontend.
-// Example: window.GRAPH_API_URL = "https://your-backend.onrender.com";
-window.GRAPH_API_URL = window.GRAPH_API_URL || "http://localhost:5000";
+// Connect the frontend to the deployed Render backend.
+window.GRAPH_API_URL = "https://graph-partitioning-api.onrender.com";
